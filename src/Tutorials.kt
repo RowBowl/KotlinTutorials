@@ -1,6 +1,8 @@
 
 
 fun main () {
+//https://www.youtube.com/playlist?list=PLQkwcJG4YTCRSQikwhtoApYs9ij_Hc5Z9
+    /*    ********Videos part 1-7
     //println("hello world")
 
     //"Int" optional
@@ -28,4 +30,16 @@ fun main () {
 
     var myStringVariable = "stRing variabEe TEST"
     println(myStringVariable.uppercase().lowercase())
+    */
+
+    //
+//    ********Videos part 8-??
+
+    val x = 5
+    val y = 6
+    val a = 6
+    val b = 10
+    //AND will take precedance over OR
+    println(!(x==y || a==b && a > y))
+
 }

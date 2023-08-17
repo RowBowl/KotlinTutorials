@@ -34,12 +34,24 @@ fun main () {
 
     //
 //    ********Videos part 8-??
-
+/*
     val x = 5
     val y = 6
     val a = 6
     val b = 10
     //AND will take precedance over OR
     println(!(x==y || a==b && a > y))
+*/
 
+    val x = 7
+    val y = 6
+    if (x > y){ //curly brakets not necessary if only one line
+        println("hello, x is greater than y")
+    }
+    else if (x < y){
+        println("hello, x is less than y")
+    }
+    else{
+        println("hello, x is equal to y")
+    }
 }

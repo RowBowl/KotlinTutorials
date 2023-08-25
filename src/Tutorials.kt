@@ -23,7 +23,7 @@ fun main () {
     for(i in arrInputs){
         sum += i
     }
-    println("The average value of these numbers is: ${sum/5}")
+    println("The average value of these numbers is: ${sum/5.0}")
 }
 
 fun isNumeric(toCheck: String): Boolean {

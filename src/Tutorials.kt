@@ -1,21 +1,12 @@
 
 
 fun main () {
-    var arr =  arrayOf(1,2,3)
-
+    var arr = arrayOf(3,5,2,10,7,1)
+    var max = arr[0]
     for(i in arr){
-        println(i)
+        if(i > max){
+            max = i
+        }
     }
-
-    for(i in 1..3){
-        println(i)
-    }
-
-    for(i in 7 downTo 3 step 3){
-        println(i)
-    }
-
-    for(i in 'a'..'z'){
-        println(i)
-    }
+    println(max)
 }

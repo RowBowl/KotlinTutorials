@@ -1,29 +1,28 @@
 
 
 fun main () {
-    val age = readLine()?.toInt()
+    val array = arrayOf(1,2,3)
+    val list = listOf(1,2,3)
 
-    //when your if/else statements depend on one variable, use when statements
-    when(age){
-        in 0..5 -> println("You're a young kid")
-        in 6..17 -> println("You're a teenager")
-        18 -> println("Finally, you're 18!")
-        19, 20 -> println("You're a young adult")
-        in 21..65 -> println("You're an adult")
-        else -> println("You're really old")
-    }
-/*
-    if(age in 0..5)
-        println("You're a young kid")
-    else if(age in 6..17)
-        println("You're a teenager")
-    else if(age == 18)
-        println("Finally, you're 18!")
-    else if(age == 19 || age == 20)
-        println("You're a young adult")
-    else if(age in 21..65)
-        println("You're an adult")
-    else
-        println("You're really old")
-        */
+    //The values within a list are immutable, but the values of an array are mutable
+    array[0] = 3 //works fine
+    //list[0] = 3 does not work
+
+    //mutable list
+    val mList = mutableListOf(1,2,3)
+    mList[0] = 3
+
+    //values can be inserted into the list
+    mList.add(4)
+
+    //lists can be directly printed
+    println(mList)
+
+    //values are removable from lists
+    mList.remove(4)
+    mList.removeAt(0)
+    println(mList)
+
+
+    val mList1 =  mutableListOf<Int>()
 }

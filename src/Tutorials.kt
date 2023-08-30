@@ -1,20 +1,19 @@
 
 
 fun main () {
-    printPow(3,5)
-}
+    var toNum = 5
+    sumTo(toNum)
+    toNum = 7
+    sumTo(toNum)
+    toNum = 15
+    sumTo(toNum)}
 
-fun printPow(base: Int, exponent: Int) {
-    var result = 1
-    for(i in 1..exponent) {
-        result *= base
+fun sumTo(toNum: Int){
+    var result = 0
+    for(i in 1..toNum){
+        result += i
     }
-    println("$base to the power of $exponent is $result")
-}
 
-fun printThreeLines() {
-    println("First")
-    println("Second")
-    println("Third")
+    println("The sum of the values from 1 to $toNum is $result")
 
 }

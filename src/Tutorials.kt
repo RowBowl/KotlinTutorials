@@ -1,23 +1,24 @@
 
 
 fun main () {
-    val list = listOf(3,2,5,1,5,6,7)
-    println("The list looks like the following: $list")
-    println("Search for this number: ")
-    val input = readLine()?.toInt()
+    val max = getMax(1,2,3) //no need to pass in list, simplypass in as many numbers you want
+    val max2 = getMax(4,3)
+    val arr =  intArrayOf(55,43,2,1,2) //intArrayof uses vararg
 
-    if(input != null){
-        println("The index of $input is ${searchList(list, input)}")
-    }
+    val max3 = getMax(1,3,44, *arr)
+
+    println("Max 1 is $max")
+    println("Max 2 is $max2")
+    println("Max 3 is $max3")
+
 }
 
-//fun searchList(list: List<Int>, input: Int): Int = list.indexOf(input)
-
-fun searchList(list: List<Int>, input: Int): Int {
-    for(i in 0 until list.size){ //use until when at least one of the range values is calculated
-        if(list[i] == input){
-            return i
+fun getMax(vararg numbers: Int): Int {
+    var max = numbers[0]
+    for(number in numbers){
+        if(number > max){
+            max = number
         }
     }
-    return -1
+    return max
 }

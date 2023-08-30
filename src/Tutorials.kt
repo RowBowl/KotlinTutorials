@@ -1,20 +1,20 @@
 
 
 fun main () {
-    //print n numbers of the fibbonaci sequence. n is inputted by the user
-    println("Enter a number > 1: ")
-    val userInput = readLine()?.toInt()
+    printPow(3,5)
+}
 
-    val list = mutableListOf<Int>()
-    if(userInput != null){
-        for(i in 0..<userInput){
-            if(i > 1){
-                list.add(list[i-2] + list[i-1])
-            } else{
-                list.add(i)
-            }
-        }
+fun printPow(base: Int, exponent: Int) {
+    var result = 1
+    for(i in 1..exponent) {
+        result *= base
     }
-    println(list)
-//[0,1,]
+    println("$base to the power of $exponent is $result")
+}
+
+fun printThreeLines() {
+    println("First")
+    println("Second")
+    println("Third")
+
 }

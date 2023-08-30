@@ -3,7 +3,8 @@
 fun main () {
     val pow = printPow(3, 5)
     //println("3 to the power of 5 is $pow")
-    println(multiply(3,5))
+    //println(multiply(3,5))
+    println(printFirstItem(listOf(1,2,3)))
 }
 
 fun printPow(base: Int, exponent: Int): Int {
@@ -16,3 +17,5 @@ fun printPow(base: Int, exponent: Int): Int {
 
 //one-line functions
 fun multiply(a:Int, b: Int) = a * b
+
+fun printFirstItem(list: List<Int>) =  println(list[0])

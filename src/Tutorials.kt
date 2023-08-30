@@ -1,21 +1,23 @@
 
 
 fun main () {
-    val pow = printPow(3, 5)
-    //println("3 to the power of 5 is $pow")
-    //println(multiply(3,5))
-    println(printFirstItem(listOf(1,2,3)))
-}
+    val list = listOf(3,2,5,1,5,6,7)
+    println("The list looks like the following: $list")
+    println("Search for this number: ")
+    val input = readLine()?.toInt()
 
-fun printPow(base: Int, exponent: Int): Int {
-    var result = 1
-    for(i in 1..exponent){
-        result *= base
+    if(input != null){
+        println("The index of $input is ${searchList(list, input)}")
     }
-    return result
 }
 
-//one-line functions
-fun multiply(a:Int, b: Int) = a * b
+//fun searchList(list: List<Int>, input: Int): Int = list.indexOf(input)
 
-fun printFirstItem(list: List<Int>) =  println(list[0])
+fun searchList(list: List<Int>, input: Int): Int {
+    for(i in 0 until list.size){ //use until when at least one of the range values is calculated
+        if(list[i] == input){
+            return i
+        }
+    }
+    return -1
+}

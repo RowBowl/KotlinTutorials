@@ -1,13 +1,11 @@
 
 
 fun main () {
-    val myRect = Rectangle(4.0,7.0)
-    println("Rectangle area is ${myRect.area()}")
-    println("Rectangle perimeter is ${myRect.perimeter()}")
-    println("Is Rectangle a Square? ${myRect.isSquare()}")
+    val myCircle = Circle(5.0)
+    myCircle.changeName("ShapeA")
+    println(myCircle.name)
 
-    val myCircle1 = Circle(5.0)
-    val myCircle2 = Circle(7.0)
-
-    val myTriangle1 = Triangle(3.0,3.0,3.0)
+    val myTriangle = Triangle(3.0, 3.0, 3.0)
+    myTriangle.changeName("Susan")
+    println(myTriangle.name)
 }

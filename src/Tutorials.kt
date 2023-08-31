@@ -1,14 +1,13 @@
 
 
 fun main () {
-    var arr = listOf(1,2,3,4,5)
-    println("The product of ${arr} is ${arr.product()}")
-}
+    val myRect = Rectangle(4.0,7.0)
+    println("Rectangle area is ${myRect.area()}")
+    println("Rectangle perimeter is ${myRect.perimeter()}")
+    println("Is Rectangle a Square? ${myRect.isSquare()}")
 
-fun List<Int>.product(): Int{
-    var product = 1
-    for(i in this){
-        product *= i
-    }
-    return product
+    val myCircle1 = Circle(5.0)
+    val myCircle2 = Circle(7.0)
+
+    val myTriangle1 = Triangle(3.0,3.0,3.0)
 }

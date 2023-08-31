@@ -1,31 +1,22 @@
 
 
 fun main () {
-    val sum =  alternatingSum(3,4,5,2,1,2,3)
-    println("The alternating sum is $sum")
+    println("Please enter a number: ")
+    val input = readLine()?.toInt()
 
-    val sum2 =  alternatingSum(2,3,7,3)
-    println("The alternating sum is $sum2")
+    if(input != null){
+        if(input.isPrime())
+            println("Input is a prime!")
+        else
+            println("Input is not a prime!")
+    }
 }
 
-fun alternatingSum(vararg numbers: Int): Int {
-    var sum = 0
-    var switch = true
-    var firstIsDone = false
-    for(i in numbers) {
-        if(!firstIsDone){ //don't set switch if it's the first element
-            sum += i
-            firstIsDone = true
-        }
-        else if(switch) {
-            sum += i
-            switch = false
-        }
-        else {
-            sum -= i
-            switch = true
-        }
+fun Int.isPrime(): Boolean{
+    for(i in 2 until this-1){
+         if(this % i == 0)//divisible by a number other than 1 and itself
+             return false
     }
+    return true
 
-    return sum
 }

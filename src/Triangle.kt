@@ -12,11 +12,6 @@ class Triangle(
     }
     fun perimeter() = a + b + c
 
-    fun area(): Double {
-        val s = perimeter()/2.0
-        val a = s * (s - a) * (s - b) * (s - c)
-        val c = sqrt(a)
-        return c
-    }
+    fun area() = sqrt((perimeter()/2) *((perimeter()/2) - a) * ((perimeter()/2) - b) * ((perimeter()/2) - c))
 
 }

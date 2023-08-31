@@ -1,25 +1,49 @@
+import kotlin.math.ceil
 
 
 fun main () {
-    val rect = Rectangle(5.0) //square with sides length 5
-    val circle = Circle(3.0)
-    val triangle = Triangle(7.0, 7.0, 7.0)
+    val list = listOf(1,2,3,4,5) //5,4,3,2,1
+    val array = arrayOf(1,2,3,4,5)
 
-    val maxAreaRectAndCircle = maxArea(rect,circle)
-    val maxAreaRectCircleTriangle = maxArea(rect, circle, triangle)
-
-    println("The maximum area of the rectangle and the circle is: $maxAreaRectAndCircle")
-    println("The maximum area of the rectangle, the circle, and the triangle is: $maxAreaRectCircleTriangle")
+    alternatingOrder(list) //1,5,2,4,3
+    println("array: ")
+    alternatingOrder(array)
 }
 
-fun maxArea(shape1: Shape, shape2: Shape): Double {
-    val areaShape1 = shape1.area()
-    val areaShape2 = shape2.area()
-    return if(areaShape1 > areaShape2) areaShape1 else areaShape2
+fun alternatingOrder(collection: List<Int>){
+    var i = 0
+    var j = collection.size - 1
+    var toggle = true
+
+    while(i <= j){
+        if(toggle) {
+            println(collection[i])
+            i++
+        }
+        else {
+            println(collection[j])
+            j--
+        }
+        toggle = !toggle
+    }
 }
 
-fun maxArea(shape1: Shape, shape2: Shape, shape3: Shape): Double {
-    val maxAreaShape1Shape2 = maxArea(shape1, shape2)
-    val areaShape3 = shape3.area()
-    return if(maxAreaShape1Shape2 > areaShape3) maxAreaShape1Shape2 else areaShape3
+fun alternatingOrder(collection: Array<Int>){
+    var i = 0
+    var j = collection.size - 1
+    var toggle = true
+
+    while(i <= j){
+        if(toggle) {
+            println(collection[i])
+            i++
+        }
+        else {
+            println(collection[j])
+            j--
+        }
+        toggle = !toggle
+    }
 }
+
+

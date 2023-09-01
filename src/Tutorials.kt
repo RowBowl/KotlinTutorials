@@ -1,50 +1,46 @@
+import java.lang.NumberFormatException
 
 
 fun main () {
-    val a = 3.0
-    val b = 4.0
-    val c = 5.0
-    val d = 6.0
-    val height = 2.0
-    val parellelogram = object: Shape("Parellelogram", a, b, height){
-
-        init {
-            println("Parellogram created with a = $a, b = $b, and height = $height")
-            println("The area is ${area()}")
-            println("The perimeter is ${perimeter()}")
-        }
-        //this is basically an anonymous class that inherits from shape
-        override fun area(): Double {
-            return a * height
-        }
-
-        override fun perimeter(): Double {
-            return 2 * a + 2 * b
-        }
-
-        fun isRectangle(): Boolean = height == b
+    val division = try {
+        divide(5.0, 0.0)
+    } catch (e: DivisionByZeroException) {
+        0.0
     }
 
-    println("Is the parellelogram a rectangle? ${parellelogram.isRectangle()}")
+    println(division)
+    //exceptions are used to detect and handle runtime errors before they crash our program
 
-    val trapezoid = object: Shape("Trapezoid", a, b, c, d, height) {
-        init {
-            println("Trapezoid created with a = $a, b = $b, c = $c, d = $d, and height = $height")
-            println("The area is ${area()}")
-            println("The perimeter is ${perimeter()}")
-        }
+    //when providing string "hello" into the toInt() function, the toInt() function throws an NumberFormatException
+    /*Exception in thread "main" java.lang.NumberFormatException: For input string: "hello"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:665)
+	at java.base/java.lang.Integer.parseInt(Integer.java:781)
+	at TutorialsKt.main(Tutorials.kt:5)
+	at TutorialsKt.main(Tutorials.kt)*/
 
-        override fun area(): Double {
-            return ((a + b)/2) * height
-        }
-
-        override fun perimeter(): Double {
-            return a + b + c + d
-        }
-
-        fun isRectangle(): Boolean = height == b
-
+    println("Please enter a number: ")
+    //val input = readLine()?.toInt() //ctrl + q to see details of a function and exceptions it can throw
+    val input = try{
+        readLine()?.toInt()
+    } catch (e: NumberFormatException) { //all exceptions are just classes that inherit super class "Exception"
+        0
+    } finally {
+        //this block executed in ALL cases (whether conversion was fine or an exception was thrown
+        println("This is from the finally block")
     }
-    println("Is the trapezoid a rectangle? ${parellelogram.isRectangle()}")
+    println("You entered: $input")
+
+    val circle = Circle(-3.0)
+
+}
+
+class DivisionByZeroException: Exception("You cannot divide by zero. Please choose a different denominator.")
+fun divide(a: Double, b: Double): Double {
+
+    if(b == 0.0)
+        throw DivisionByZeroException()
+
+    return a / b
 
 }

@@ -1,5 +1,6 @@
 import kotlin.math.PI
 import kotlin.random.Random
+class CircleNegativeRadiusException: Exception("You cannot create a circle with radius less than 0.")
 
 class Circle(
     val radius: Double
@@ -16,6 +17,9 @@ class Circle(
     constructor(diameter: Double): this(diameter/2) */
 
     init {
+        if(radius < 0)
+            throw CircleNegativeRadiusException()
+
         println("$name created with radius = $radius")
         println("$name area is ${area()}")
         println("$name perimeter is ${perimeter()}")

@@ -1,18 +1,29 @@
 
 
 fun main () {
-    var list = (1..10).toList()
-    val sum = list.customSum { it % 2 == 1}
+    val circle1 = Circle(5.0)
+    val circle2 = Circle(3.5)
+    val triangle1 = Triangle(4.0, 4.0, 4.0)
+    val triangle2 = Triangle(3.0, 3.0, 3.0)
+    val rectangle1 = Rectangle(6.0)
+    val rectangle2 = Rectangle(4.0, 3.0)
 
-    println("The sum is: $sum")
+    var shapes = listOf(circle1, circle2, triangle1, triangle2, rectangle1, rectangle2)
+    //shapes = shapes.filter { it.area() > 20.0 }.sortedBy { it.area() }
+    shapes = shapes.customFilter { it.area() > 20.0 }.sortedBy { it.area() }
+    var integers = (1..10).toList().customFilter { it > 5 }
+    println(integers)
+    for (shape in shapes) {
+        println("${shape.name}: Area: ${shape.area()}")
+    }
 }
 
-fun List<Int>.customSum(sumFunction: (Int) -> (Boolean)): Int {
-    var sum = 0
-    for(i in this){
-        if(sumFunction(i)) {
-            sum += i
+fun <T> List<T>.customFilter(filterFunction: (T) -> (Boolean)): List<T> {
+    val resultList = mutableListOf<T>()
+    for (item in this) {
+        if(filterFunction(item)) {
+            resultList.add(item)
         }
     }
-    return sum
+    return resultList
 }

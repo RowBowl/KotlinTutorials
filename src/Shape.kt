@@ -2,6 +2,8 @@ abstract class Shape( //abstract classes are only for other classes to inherit f
     var name: String
     //every shape has an area and perimeter, but the calculation of these values differ between the types of shapes
 ) {
+
+    constructor(name: String, vararg dimensions: Double): this(name)
     init {
         println("I am the super class!")
     }

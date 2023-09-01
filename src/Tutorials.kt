@@ -10,7 +10,7 @@ fun main () {
 
     var shapes = listOf(circle1, circle2, triangle1, triangle2, rectangle1, rectangle2)
     //shapes = shapes.filter { it.area() > 20.0 }.sortedBy { it.area() }
-    shapes = shapes.customFilter { it.area() > 20.0 }.sortedBy { it.area() }
+    //shapes = shapes.customFilter { it.area() > 20.0 }.sortedBy { it.area() }
     var integers = (1..10).toList().customFilter { it > 5 }
     println(integers)
     for (shape in shapes) {
@@ -18,7 +18,7 @@ fun main () {
     }
 }
 
-fun <T> List<T>.customFilter(filterFunction: (T) -> (Boolean)): List<T> {
+fun <T: Number> List<T>.customFilter(filterFunction: (T) -> (Boolean)): List<T> {
     val resultList = mutableListOf<T>()
     for (item in this) {
         if(filterFunction(item)) {

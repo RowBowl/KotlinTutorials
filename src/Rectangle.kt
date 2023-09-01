@@ -1,3 +1,5 @@
+import kotlin.random.Random
+
 class Rectangle (
     val a: Double,
     val b: Double
@@ -8,6 +10,15 @@ class Rectangle (
     constructor(a: Double): this(a, a) //this constructor is for squares, which only have one value doubled for sides
 
     constructor(a: Int, b: Int): this(a.toDouble(),b.toDouble()) //if integer values are used during creation
+
+    companion object{
+        fun randomRectangle(): Rectangle {
+            val a = Random.nextDouble(1.0, 10.0)
+            val b = Random.nextDouble(1.0, 10.0)
+
+            return Rectangle(a, b)
+        }
+    }
     init {
         println("$name created with a = $a and b =  $b")
     }

@@ -9,9 +9,20 @@ fun main () {
     val rectangle2 = Rectangle(4.0, 3.0)
 
     var shapes = listOf(circle1, circle2, triangle1, triangle2, rectangle1, rectangle2)
-    shapes = shapes.filter { it.area() > 20.0 }.sortedBy { it.area() }
+    //shapes = shapes.filter { it.area() > 20.0 }.sortedBy { it.area() }
+    shapes = shapes.customFilter { it.area() > 20.0 }.sortedBy { it.area() }
 
     for (shape in shapes) {
         println("${shape.name}: Area: ${shape.area()}")
     }
+}
+
+fun List<Shape>.customFilter(filterFunction: (Shape) -> (Boolean)): List<Shape> {
+    val resultList = mutableListOf<Shape>()
+    for (shape in this) {
+        if(filterFunction(shape)) {
+            resultList.add(shape)
+        }
+    }
+    return resultList
 }
